@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+class Personal{
+public:
+string name,city;
+Personal(string n,string c){
+name=n;
+city=c;
+}
+};
+class Customer{
+public:
+string accno,ifsc;
+int bal;
+Personal *d;
+Customer(string ano,string icode,int b,Personal D){
+accno=ano;
+ifsc=icode;
+bal=b;
+d=&D;
+}
+void show(){
+cout<<accno<<" "<<ifsc<<" "<<bal<<" "<<d->name<<" "<<d->city;
+}
+};
+int main()
+{
+Personal p("Sudhir","KKD");
+Customer c1("s34565123","sbi123",1200,p);
+c1.show();
+}
