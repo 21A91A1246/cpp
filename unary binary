@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class BankAccount
+{
+private:
+string name,accno,ifscno;
+int bal,pin;
+public:
+BankAccount(string name,string accno,string ifscno,int bal,int pin)
+{
+this->name=name;
+this->accno=accno;
+this->ifscno=ifscno;
+this->bal=bal;
+this->pin=pin;
+}
+void display()
+{
+cout<<this->name<<" "<<this->accno<<" "<<this->ifscno<<"
+"<<this->bal<<" "<<this->pin<<endl;
+}
+void operator ++()//Unary operator overloading
+{
+++bal;
+}
+int operator +(BankAccount &B2)//Binary operator overloading{
+return bal+B2.bal;}
+};
+int main()
+{
+BankAccount b1("Ravi","5654563","SBI556",12000,1234);
+b1.display();
+BankAccount b2("Suresh","234565","SBI556",1500,8765);
+b2.display();
+//amount in this bank
+int amount=b1+b2;//Binary operator overloading call
+cout<<amount<<endl;
+++b1;// Unary operator overloading call
+b1.display();
+}
